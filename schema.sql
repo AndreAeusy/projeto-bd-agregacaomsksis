@@ -4,6 +4,7 @@
 
 CREATE TABLE funcionario (
     id            SERIAL PRIMARY KEY,
+    cpf           VARCHAR(14) NOT NULL UNIQUE,
     nome          VARCHAR(100) NOT NULL,
     supervisor_id INTEGER REFERENCES funcionario(id) ON DELETE SET NULL
 );
@@ -15,6 +16,7 @@ CREATE TABLE funcionario (
 
 CREATE TABLE dependente (
     id             SERIAL PRIMARY KEY,
+    cpf            VARCHAR(14) NOT NULL UNIQUE,
     nome           VARCHAR(100) NOT NULL,
     funcionario_id INTEGER NOT NULL,
     CONSTRAINT fk_dependente_funcionario
